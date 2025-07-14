@@ -1,3 +1,8 @@
+import Planet_Alpha from '/textures/planet_alpha.jpg';
+import Planet_Beta from '/textures/planet_beta.jpg';
+import Planet_Gamma from '/textures/planet_gamma.jpg';
+import Planet_Delta from '/textures/planet_delta.jpg';
+
 const projects = [
   {
     id: 'project-1',
@@ -5,7 +10,7 @@ const projects = [
     description: 'This is the first project, focusing on WebGL performance.',
     color: '#FF6B6B', 
     position: [-2, 1, 0],
-    texturePath: './textures/planet_alpha.jpg', // 새로운 텍스처 경로 추가
+    texturePath: Planet_Alpha,
     details: {
       techStack: ['Three.js', 'React', 'GLSL'],
       github: 'https://github.com/your/project-alpha',
@@ -18,7 +23,7 @@ const projects = [
     description: 'An interactive data visualization using Three.js.',
     color: '#4ECDC4', 
     position: [2, -1, 0],
-    texturePath: './textures/planet_beta.jpg', // 새로운 텍스처 경로 추가
+    texturePath: Planet_Beta, // 새로운 텍스처 경로 추가
     details: {
       techStack: ['Three.js', 'D3.js', 'Zustand'],
       github: 'https://github.com/your/project-beta',
@@ -31,7 +36,7 @@ const projects = [
     description: 'A 3D product configurator built with R3F.',
     color: '#45B7D1', 
     position: [0, 0, -3],
-    texturePath: './textures/planet_gamma.jpg', // 새로운 텍스처 경로 추가
+    texturePath: Planet_Gamma, // 새로운 텍스처 경로 추가
     details: {
       techStack: ['React Three Fiber', 'Blender', 'GSAP'],
       github: 'https://github.project-gamma.com',
@@ -44,7 +49,7 @@ const projects = [
     description: 'Procedural terrain generation with custom shaders.',
     color: '#FED766', 
     position: [0, 3, 1],
-    texturePath: './textures/planet_delta.jpg', // 새로운 텍스처 경로 추가
+    texturePath: Planet_Delta, // 새로운 텍스처 경로 추가
     details: {
       techStack: ['GLSL', 'Three.js', 'Web Workers'],
       github: 'https://github.com/your/project-delta',
