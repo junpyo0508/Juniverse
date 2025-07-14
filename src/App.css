@@ -1,0 +1,9 @@
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* 스크롤바 제거 */
+}
+
+/* 기존 App.css의 다른 스타일이 있다면 여기에 추가하거나 필요한 것만 남깁니다. */
