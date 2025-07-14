@@ -1,7 +1,7 @@
-import Planet_Alpha from '/textures/planet_alpha.jpg';
-import Planet_Beta from '/textures/planet_beta.jpg';
-import Planet_Gamma from '/textures/planet_gamma.jpg';
-import Planet_Delta from '/textures/planet_delta.jpg';
+import Planet_Alpha from '../assets/textures/planet_alpha.jpg';
+import Planet_Beta from '../assets/textures/planet_beta.jpg';
+import Planet_Gamma from '../assets/textures/planet_gamma.jpg';
+import Planet_Delta from '../assets/textures/planet_delta.jpg';
 
 const projects = [
   {
