@@ -3,8 +3,9 @@ const projects = [
     id: 'project-1',
     name: 'Project Alpha',
     description: 'This is the first project, focusing on WebGL performance.',
-    color: '#FF6B6B', // 밝은 빨강
-    position: [-2, 1, 0], // X, Y, Z 좌표
+    color: '#FF6B6B', 
+    position: [-2, 1, 0],
+    texturePath: '/textures/planet_alpha.jpg', // 새로운 텍스처 경로 추가
     details: {
       techStack: ['Three.js', 'React', 'GLSL'],
       github: 'https://github.com/your/project-alpha',
@@ -15,8 +16,9 @@ const projects = [
     id: 'project-2',
     name: 'Project Beta',
     description: 'An interactive data visualization using Three.js.',
-    color: '#4ECDC4', // 청록색
+    color: '#4ECDC4', 
     position: [2, -1, 0],
+    texturePath: '/textures/planet_beta.jpg', // 새로운 텍스처 경로 추가
     details: {
       techStack: ['Three.js', 'D3.js', 'Zustand'],
       github: 'https://github.com/your/project-beta',
@@ -27,11 +29,12 @@ const projects = [
     id: 'project-3',
     name: 'Project Gamma',
     description: 'A 3D product configurator built with R3F.',
-    color: '#45B7D1', // 하늘색
+    color: '#45B7D1', 
     position: [0, 0, -3],
+    texturePath: '/textures/planet_gamma.jpg', // 새로운 텍스처 경로 추가
     details: {
       techStack: ['React Three Fiber', 'Blender', 'GSAP'],
-      github: 'https://github.com/your/project-gamma',
+      github: 'https://github.project-gamma.com',
       liveDemo: 'https://live.project-gamma.com',
     },
   },
@@ -39,8 +42,9 @@ const projects = [
     id: 'project-4',
     name: 'Project Delta',
     description: 'Procedural terrain generation with custom shaders.',
-    color: '#FED766', // 노란색
+    color: '#FED766', 
     position: [0, 3, 1],
+    texturePath: '/textures/planet_delta.jpg', // 새로운 텍스처 경로 추가
     details: {
       techStack: ['GLSL', 'Three.js', 'Web Workers'],
       github: 'https://github.com/your/project-delta',
