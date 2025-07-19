@@ -1,0 +1,37 @@
+
+.intro-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: black; /* 배경색 */
+  color: white;
+  z-index: 2000; /* 다른 요소 위에 오도록 */
+}
+
+.intro-title {
+  font-size: 5em;
+  margin-bottom: 30px;
+  text-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+}
+
+.explore-button {
+  padding: 15px 30px;
+  font-size: 1.5em;
+  background-color: cyan; /* 버튼 색상 */
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.explore-button:hover {
+  background-color: #00e6e6;
+  transform: scale(1.05);
+}

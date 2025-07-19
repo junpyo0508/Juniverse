@@ -1,17 +1,24 @@
 import React from 'react';
-import { useGLTF } from '@react-three/drei';
 import GalaxyScene from './components/GalaxyScene';
 import ProjectDetailUI from './components/ProjectDetailUI';
+import IntroScene from './components/IntroScene';
+import DepartureAnimation from './components/DepartureAnimation';
+import useAppStore from './store/useAppStore';
 import './App.css';
 
-// 앱이 시작될 때 우주선 모델을 미리 로드합니다.
-useGLTF.preload('/models/spaceship.glb');
-
 function App() {
+  const currentScene = useAppStore((state) => state.currentScene);
+
   return (
     <div style={{ width: '100vw', height: '100vh', overflow: 'hidden' }}>
-      <GalaxyScene />
-      <ProjectDetailUI />
+      {currentScene === 'intro' && <IntroScene />}
+      {currentScene === 'departing' && <DepartureAnimation />}
+      {currentScene === 'galaxy' && (
+        <>
+          <GalaxyScene />
+          <ProjectDetailUI />
+        </>
+      )}
     </div>
   );
 }
