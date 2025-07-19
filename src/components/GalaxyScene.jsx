@@ -41,7 +41,7 @@ function CameraController({ pathCurve }) {
     const handleWheel = (event) => {
       if (currentScene !== 'galaxy') return;
 
-      const scrollSpeed = 0.00001; // 스크롤 속도 조절
+      const scrollSpeed = 0.0001; // 스크롤 속도 조절
       pathProgress.current -= event.deltaY * scrollSpeed;
       pathProgress.current = Math.max(0, Math.min(1, pathProgress.current)); // 0과 1 사이로 제한
     };
