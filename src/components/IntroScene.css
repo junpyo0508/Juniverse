@@ -1,6 +1,5 @@
-
 .intro-container {
-  position: relative; /* absolute에서 relative로 변경 */
+  position: relative;
   top: 0;
   left: 0;
   width: 100%;
@@ -10,13 +9,12 @@
   justify-content: center;
   align-items: center;
   color: white;
-  z-index: 2000;
+  z-index: 1;
   overflow: hidden;
-
-  /* 배경 그라데이션: 딥 블루~블랙 계열 */
-  background: radial-gradient(ellipse at bottom, #0B0F2B 0%, #000000 70%, #000033 100%); /* 딥 블루~블랙 계열에 미묘한 푸른색 추가 */
-  position: relative;
-  overflow: hidden;
+  background-image: url('/textures/earth3.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .intro-container::before {
@@ -24,30 +22,22 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at center, rgba(69, 175, 255, 0.1) 0%, transparent 70%); /* 오로라 효과 */
-  animation: aurora-pulse 10s infinite alternate ease-in-out;
-  z-index: -1; /* 배경 뒤에 위치 */
-}
-
-@keyframes aurora-pulse {
-  0% { transform: scale(1) rotate(0deg); opacity: 0.5; }
-  50% { transform: scale(1.2) rotate(5deg); opacity: 0.7; }
-  100% { transform: scale(1) rotate(0deg); opacity: 0.5; }
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 2;
 }
 
 .intro-content {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  position: relative;
+  z-index: 3;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  z-index: 2001; /* 캔버스 위에 오도록 */
+  text-align: center;
+  width: 100%;
+  height: 100%;
 }
 
 .intro-canvas {
@@ -56,10 +46,10 @@
   left: 0;
   width: 100% !important;
   height: 100% !important;
-  z-index: 1998; /* 별들보다 아래, 배경보다 위 */
+  z-index: 1;
 }
 
-/* 별 먼지 효과 */
+/* Twinkling Stars */
 .stars {
   position: absolute;
   top: 0;
@@ -68,12 +58,12 @@
   height: 100%;
   background: transparent;
   pointer-events: none;
-  z-index: 1999; /* 캔버스 위에 오도록 */
+  z-index: 4;
 }
 
 .star {
   position: absolute;
-  background-color: #D8CFFF; /* 연보라~보라 계열 */
+  background-color: #FFF;
   border-radius: 50%;
   opacity: 0;
   animation: twinkle 5s infinite ease-in-out;
@@ -81,49 +71,54 @@
 
 @keyframes twinkle {
   0%, 100% { opacity: 0; transform: scale(0.5); }
-  50% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1); }
 }
 
-/* JUNIVERSE 타이틀 */
+/* Title */
 .intro-title {
-  font-family: 'Arial', sans-serif; /* 폰트 변경 (가장 유사한 시스템 폰트) */
-  font-size: 6em; 
-  margin-bottom: 10px; /* 서브텍스트와의 간격 조정 */
-  color: #FFFFFF; 
-  text-shadow: none; /* 네온 효과 제거, 뚜렷하게 */
-  letter-spacing: -0.05em; /* tight kerning */
-  font-weight: 900; /* 매우 굵게 */
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 13em;
+  margin-bottom: 15px;
+  color: #FFFFFF;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+  letter-spacing: 0.05em;
+  font-weight: 200;
 }
 
-/* 서브텍스트 */
+/* Subtitle */
 .intro-subtitle {
-  font-family: 'Arial', sans-serif; /* 폰트 변경 */
-  font-size: 1.2em;
-  color: #CCCCCC;
-  margin-bottom: 40px; /* 버튼과의 간격 조정 */
-  font-weight: 300; /* 얇게 */
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 1.3em;
+  color: #E0E0E0;
+  margin-bottom: 50px;
+  font-weight: 300;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.6);
 }
 
-/* Explore 버튼 */
+/* Explore Button */
 .explore-button {
-  padding: 15px 30px;
+  padding: 12px 28px;
   font-size: 1.5em;
-  background-color: rgba(255,255,255,0.1); /* 반투명 배경 */
-  color: #FFFFFF; /* 흰색 텍스트 */
-  border: 2px solid #FFFFFF; /* 흰색 테두리 */
-  border-radius: 5px; /* 둥근 모서리 */
+  background-color: transparent;
+  color: #FFFFFF;
+  border: 1px solid #FFFFFF;
+  border-radius: 30px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: none; /* 초기 글로우 제거 */
+  transition: all 0.4s ease;
+  font-weight: 400;
 }
 
 .explore-button:hover {
-  background-color: #2176FF; /* 호버 시 배경 색이 진해짐 (선명한 블루) */
-  color: #FFFFFF; 
-  border-color: #2176FF; /* 테두리 색상도 변경 */
+  background-color: #FFFFFF;
+  color: #000000;
   transform: scale(1.05);
 }
 
-/* 이전의 ::before 애니메이션 제거 */
+.explore-icon {
+  margin-left: 8px;
+  transition: transform 0.3s ease;
+}
 
-
+.explore-button:hover .explore-icon {
+  transform: rotate(45deg);
+}
