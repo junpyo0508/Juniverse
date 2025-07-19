@@ -7,6 +7,7 @@ import projects from '../data/projects';
 import useProjectStore from '../store/useProjectStore';
 import useAppStore from '../store/useAppStore';
 import PathTube from './PathTube'; // PathTube import 추가
+import ContactInfo from './ContactInfo'; // ContactInfo import 추가
 
 // 경로 정의
 const PATH_POINTS = [
@@ -122,6 +123,7 @@ function GalaxyScene() {
 
   return (
     <Canvas camera={{ position: PATH_POINTS[0], fov: 75 }}> {/* 카메라 초기 위치를 경로 시작점으로 설정 */}
+      <color attach="background" args={['black']} />
       {/* 주변광: 모든 오브젝트에 고르게 빛을 비춥니다. */}
       <ambientLight intensity={0.3} /> {/* 주변광 강도 약간 낮춤 */}
       {/* 중앙 태양 (강한 점 광원) */}
@@ -148,6 +150,9 @@ function GalaxyScene() {
 
       {/* 카메라 제어 컴포넌트 */}
       <CameraController pathCurve={pathCurve} />
+
+      {/* 연락처 정보 */}
+      <ContactInfo position={[0, 0, -25]} />
     </Canvas>
   );
 }
