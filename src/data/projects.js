@@ -1,11 +1,20 @@
+const PATH_POINTS = [
+  [0, 0, 0], // Start point
+  [5, 2, -5],
+  [-3, 4, -10],
+  [7, -1, -15],
+  [-5, -3, -20],
+  [0, 0, -25], // End point
+];
+
 const projects = [
   {
     id: 'project-1',
     name: 'Project Alpha',
     description: 'This is the first project, focusing on WebGL performance.',
     color: '#FF6B6B', 
-    position: [-2, 1, 0],
-    texturePath: '/textures/planet_alpha.jpg', // 새로운 텍스처 경로 추가
+    position: [PATH_POINTS[1][0] + 0.5, PATH_POINTS[1][1] + 0.5, PATH_POINTS[1][2] + 0.5],
+    texturePath: '/textures/planet_alpha.jpg',
     details: {
       techStack: ['Three.js', 'React', 'GLSL'],
       github: 'https://github.com/your/project-alpha',
@@ -17,8 +26,8 @@ const projects = [
     name: 'Project Beta',
     description: 'An interactive data visualization using Three.js.',
     color: '#4ECDC4', 
-    position: [2, -1, 0],
-    texturePath: '/textures/planet_beta.jpg', // 새로운 텍스처 경로 추가
+    position: [PATH_POINTS[2][0] - 0.5, PATH_POINTS[2][1] + 0.5, PATH_POINTS[2][2] - 0.5],
+    texturePath: '/textures/planet_beta.jpg',
     details: {
       techStack: ['Three.js', 'D3.js', 'Zustand'],
       github: 'https://github.com/your/project-beta',
@@ -30,8 +39,8 @@ const projects = [
     name: 'Project Gamma',
     description: 'A 3D product configurator built with R3F.',
     color: '#45B7D1', 
-    position: [0, 0, -3],
-    texturePath: '/textures/planet_gamma.jpg', // 새로운 텍스처 경로 추가
+    position: [PATH_POINTS[3][0] + 0.5, PATH_POINTS[3][1] - 0.5, PATH_POINTS[3][2] + 0.5],
+    texturePath: '/textures/planet_gamma.jpg',
     details: {
       techStack: ['React Three Fiber', 'Blender', 'GSAP'],
       github: 'https://github.project-gamma.com',
@@ -43,8 +52,8 @@ const projects = [
     name: 'Project Delta',
     description: 'Procedural terrain generation with custom shaders.',
     color: '#FED766', 
-    position: [0, 3, 1],
-    texturePath: '/textures/planet_delta.jpg', // 새로운 텍스처 경로 추가
+    position: [PATH_POINTS[4][0] - 0.5, PATH_POINTS[4][1] - 0.5, PATH_POINTS[4][2] - 0.5],
+    texturePath: '/textures/planet_delta.jpg',
     details: {
       techStack: ['GLSL', 'Three.js', 'Web Workers'],
       github: 'https://github.com/your/project-delta',
