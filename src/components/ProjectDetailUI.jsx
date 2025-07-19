@@ -25,6 +25,9 @@ function ProjectDetailUI() {
     }}>
       <h2>{selectedProject.name}</h2>
       <p>{selectedProject.description}</p>
+      {selectedProject.imagePath && (
+        <img src={selectedProject.imagePath} alt={selectedProject.name} style={{ width: '100%', height: 'auto', maxHeight: '300px', objectFit: 'contain', marginTop: '10px', borderRadius: '5px' }} />
+      )}
       <h3>기술 스택:</h3>
       <ul>
         {selectedProject.details.techStack.map((tech, index) => (

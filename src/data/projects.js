@@ -15,6 +15,7 @@ const projects = [
     color: '#FF6B6B', 
     position: [PATH_POINTS[1][0] + 0.5, PATH_POINTS[1][1] + 0.5, PATH_POINTS[1][2] + 0.5],
     texturePath: '/textures/planet_alpha.jpg',
+    imagePath: '/portfolio/AstroCrush.png',
     details: {
       techStack: ['Three.js', 'React Three Fiber', 'GLSL'],
       sound: ['Ableton Live'],
@@ -29,6 +30,7 @@ const projects = [
     color: '#4ECDC4', 
     position: [PATH_POINTS[2][0] - 0.5, PATH_POINTS[2][1] + 0.5, PATH_POINTS[2][2] - 0.5],
     texturePath: '/textures/planet_beta.jpg',
+    imagePath: '/portfolio/CrossyRoad.png',
     details: {
       techStack: ['Three.js', 'React Three Fiber', 'Zustand'],
       github: 'https://github.com/junpyo0508/CrossyRoad.git',
@@ -42,6 +44,7 @@ const projects = [
     color: '#45B7D1', 
     position: [PATH_POINTS[3][0] + 0.5, PATH_POINTS[3][1] - 0.5, PATH_POINTS[3][2] + 0.5],
     texturePath: '/textures/planet_gamma.jpg',
+    imagePath: '/portfolio/WebShooting.png',
     details: {
       techStack: ['TypeScript', 'WebGL'],
       github: 'https://github.project-gamma.com',
@@ -55,6 +58,7 @@ const projects = [
     color: '#FED766', 
     position: [PATH_POINTS[4][0] - 0.5, PATH_POINTS[4][1] - 0.5, PATH_POINTS[4][2] - 0.5],
     texturePath: '/textures/planet_delta.jpg',
+    imagePath: '/portfolio/Charting.png',
     details: {
       techStack: ['D3.js', 'React', 'Node.js'],
       github: 'https://github.com/junpyo0508/VisualizationOfDomesticBoxOffice.git',
