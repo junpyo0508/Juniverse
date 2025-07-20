@@ -21,10 +21,11 @@ const PATH_POINTS = [
 
 function CameraController({ pathCurve }) {
   const { camera } = useThree();
-  const { selectedProject, selectProject, closeDetail, isDetailOpen } = useProjectStore();
+  const { selectProject, closeDetail } = useProjectStore();
   const currentScene = useAppStore((state) => state.currentScene);
 
   const pathProgress = useRef(0); // 0.0 to 1.0
+  const lookAtTarget = useRef(new Vector3(...pathCurve.getPointAt(0.01).toArray())); // 부드러운 lookAt 목표
   const lastSelectedProjectRef = useRef(null); // 마지막으로 선택된 프로젝트 추적
   const hasArrived = useRef(false); // hasArrived 선언 추가
 
@@ -32,18 +33,20 @@ function CameraController({ pathCurve }) {
   useEffect(() => {
     if (currentScene === 'galaxy' && !hasArrived.current) {
       camera.position.set(0, 0, 200); // 매우 먼 곳에서 시작
-      // 도착 애니메이션 후 카메라를 경로 시작점으로 이동
       pathProgress.current = 0;
+      // Scene이 시작될 때 lookAtTarget도 초기화합니다.
+      const initialLookAt = pathCurve.getPointAt(0.01);
+      lookAtTarget.current.set(initialLookAt.x, initialLookAt.y, initialLookAt.z);
       hasArrived.current = true;
     }
-  }, [currentScene, camera]);
+  }, [currentScene, camera, pathCurve]); // pathCurve를 의존성 배열에 추가합니다.
 
   useEffect(() => {
     const handleWheel = (event) => {
       if (currentScene !== 'galaxy') return;
 
       const scrollSpeed = 0.0001; // 스크롤 속도 조절
-      pathProgress.current -= event.deltaY * scrollSpeed;
+      pathProgress.current += event.deltaY * scrollSpeed;
       pathProgress.current = Math.max(0, Math.min(1, pathProgress.current)); // 0과 1 사이로 제한
     };
 
@@ -54,15 +57,24 @@ function CameraController({ pathCurve }) {
   useFrame(() => {
     if (currentScene !== 'galaxy') return;
 
-    // 카메라 위치 업데이트
-    const currentPoint = pathCurve.getPointAt(pathProgress.current);
-    camera.position.lerp(currentPoint, 0.1); // 부드러운 이동
+    const currentProgress = pathProgress.current;
 
-    // 카메라가 바라볼 지점 (경로의 다음 지점)
-    const lookAtPoint = pathCurve.getPointAt(Math.min(pathProgress.current + 0.01, 1));
-    camera.lookAt(lookAtPoint);
+    // 카메라 위치를 부드럽게 업데이트합니다.
+    const currentPoint = pathCurve.getPointAt(currentProgress);
+    camera.position.lerp(currentPoint, 0.1); 
 
-    // 행성 근접 감지 및 정보 표시
+    // 카메라는 항상 경로의 앞쪽을 바라보도록 설정합니다.
+    const lookDelta = 0.01;
+    const lookAtProgress = currentProgress + lookDelta;
+    const clampedLookAtProgress = Math.max(0, Math.min(1, lookAtProgress));
+    const targetPoint = pathCurve.getPointAt(clampedLookAtProgress);
+    
+    // lookAt 목표 지점을 부드럽게 보간합니다.
+    lookAtTarget.current.lerp(targetPoint, 0.1);
+    // 부드럽게 움직이는 목표 지점을 바라봅니다.
+    camera.lookAt(lookAtTarget.current);
+
+    // 행성 근접 감지 로직
     let closestProject = null;
     let minDistance = Infinity;
     const proximityThreshold = 3; // 행성 근접 임계값
@@ -88,7 +100,7 @@ function CameraController({ pathCurve }) {
     }
   });
 
-  return null; // OrbitControls 제거
+  return null; 
 }
 
 function Stars({ count = 5000 }) {
